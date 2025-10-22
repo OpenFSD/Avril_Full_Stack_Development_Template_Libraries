@@ -1,5 +1,7 @@
 #include "pch.h"
 
+
+
 std::vector<bool> _flag_write_IDLE = { NULL, NULL};
 std::vector<bool> _flag_write_WAIT = { NULL, NULL };
 std::vector<bool> _flag_write_WRITE = { NULL, NULL };

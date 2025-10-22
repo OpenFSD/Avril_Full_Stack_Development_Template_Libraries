@@ -6,10 +6,9 @@ class Avril_FSD::User_Alg* ptr_User_Algorithms = NULL;
 
 Avril_FSD::Algorithms::Algorithms()
 {
-    std::cout << "entered => Algorithms()" << std::endl;
+    //std::cout << "entered => Algorithms()" << std::endl;
     Set_User_Algorithms(new class Avril_FSD::User_Alg());
-    while (ptr_User_Algorithms == NULL) { }
-    std::cout << "exiting => Algorithms()" << std::endl;
+    //std::cout << "exiting => Algorithms()" << std::endl;
 }
 
 Avril_FSD::Algorithms::~Algorithms()

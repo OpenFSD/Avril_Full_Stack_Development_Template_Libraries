@@ -3,8 +3,8 @@
 float _fov;
 int _refreshRate;
 bool _systemInitialised;
-char _screenSize_X;
-char _screenSize_Y;
+float _screenSize_X;
+float _screenSize_Y;
 
 Avril_FSD::Settings::Settings()
 {
@@ -31,11 +31,11 @@ bool Avril_FSD::Settings::Get_systemInitialised()
 {
 	return _systemInitialised;
 }
-char Avril_FSD::Settings::Get_screenSize_X()
+float Avril_FSD::Settings::Get_screenSize_X()
 {
 	return _screenSize_X;
 }
-char Avril_FSD::Settings::Get_screenSize_Y()
+float Avril_FSD::Settings::Get_screenSize_Y()
 {
 	return _screenSize_Y;
 }
@@ -52,11 +52,11 @@ void Avril_FSD::Settings::Set_systemInitialised(bool isSystemInitialised)
 {
 	_systemInitialised = isSystemInitialised;
 }
-void Avril_FSD::Settings::Set_screenSize_X(char screenSize_X)
+void Avril_FSD::Settings::Set_screenSize_X(float screenSize_X)
 {
 	_screenSize_X = screenSize_X;
 }
-void Avril_FSD::Settings::Set_screenSize_Y(char screenSize_Y)
+void Avril_FSD::Settings::Set_screenSize_Y(float screenSize_Y)
 {
 	_screenSize_Y = screenSize_Y;
 }

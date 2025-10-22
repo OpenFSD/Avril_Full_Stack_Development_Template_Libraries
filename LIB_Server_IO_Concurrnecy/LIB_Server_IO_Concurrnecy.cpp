@@ -41,10 +41,12 @@ void* Avril_FSD::CLIBServerIOConcurrnecy::Initialise_Server_Concurrency()
 {
     _Server_Assembly = new class Avril_FSD::Framework_Server();
     while (_Server_Assembly == NULL) {}
-    _Server_Assembly->Initialise_Program(_Server_Assembly);
     return (void*)_Server_Assembly;
 }
-
+void Avril_FSD::CLIBServerIOConcurrnecy::Initalise_Programs(Avril_FSD::Framework_Server* obj)
+{
+    obj->Initialise_Program(obj);
+}
 void Avril_FSD::CLIBServerIOConcurrnecy::Flip_InBufferToWrite(Avril_FSD::Framework_Server* obj)
 {
     obj->Get_Server_Assembly()->Get_Data()->Flip_Input_DoubleBuffer();

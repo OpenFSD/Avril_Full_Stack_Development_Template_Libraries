@@ -1,2 +1,0 @@
-#define LIBWRITEENABLEFORTHREADSATSTACK_API __declspec(dllexport)
-#define LIBWRITEENABLEFORTHREADSATSTACK_API __declspec(dllimport)
