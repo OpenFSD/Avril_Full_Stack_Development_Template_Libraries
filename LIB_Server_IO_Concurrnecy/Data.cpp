@@ -20,53 +20,49 @@ class Avril_FSD::User_O* ptr_User_O = NULL;
 std::vector<class Avril_FSD::Input*>* ptr_Stack_InputPraise = NULL;
 std::vector<class Avril_FSD::Output*>* ptr_Stack_OutputPraise = NULL;
 
-Avril_FSD::Data::Data(__int8 number_Implemented_Cores)
+Avril_FSD::Data::Data()
 {
+    std::cout << "entered => Data()" << std::endl;
     Set_EmptyBuffer_Input(new class Avril_FSD::Input());
     while (Get_New_InputBuffer() == NULL) { }
     Get_New_InputBuffer()->Initialise_Control();
 
+    std::cout << "entered => Data() ALPHA" << std::endl;
     Set_EmptyBuffer_Output(new class Avril_FSD::Output());
+    std::cout << "entered => Data() ALPHA BRAVO" << std::endl;
     while (Get_New_OutputBuffer() == NULL) { }
+    std::cout << "entered => Data() ALPHA CHARLIE" << std::endl;
     Get_New_OutputBuffer()->Initialise_Control();
 
+    std::cout << "entered => Data() BRAVO" << std::endl;
     Set_Buffer_InputDouble(GetState_InputBuffer(), Get_New_InputBuffer());
     Set_Buffer_InputDouble(!GetState_InputBuffer(), Get_New_InputBuffer());
     while (GetBuffer_InputFrontDouble() == NULL) {}
     while (GetBuffer_InputBackDouble() == NULL) {}
 
+    std::cout << "entered => Data() CHARLIE" << std::endl;
     Set_Buffer_OututDouble(GetState_OutputBuffer(), Get_New_OutputBuffer());
     Set_Buffer_OututDouble(!GetState_OutputBuffer(), Get_New_OutputBuffer());
     while (GetBuffer_OutputFrontDouble() == NULL) {}
     while (GetBuffer_OutputBackDouble() == NULL) {}
     
-    for (__int8 index = 0; index < number_Implemented_Cores; index++)//Number Of Cores
-    {
-        Set_Buffer_InputReference_ForCore(index, Get_New_InputBuffer());
-        while (Get_InputRefferenceOfCore(index) == NULL) { }
-    }
-    for (__int8 index = 0; index < number_Implemented_Cores; index++)
-    {
-        Set_Buffer_OutputReference_ForCore(index, Get_New_OutputBuffer());
-        while (Get_OutputRefferenceOfCore(index) == NULL) {}
-    }
-
+    std::cout << "entered => Data() DELTA" << std::endl;
     Set_Stack_InputPraise(new std::vector<class Avril_FSD::Input*>);
     while (Get_Stack_InputPraise() == NULL) { }
     Get_Stack_InputPraise()->resize(1);
     Get_Stack_InputPraise()->at(0) = Get_New_InputBuffer();
 
+    std::cout << "entered => Data() ECHO" << std::endl;
     Set_Stack_OutputPraise(new std::vector<class Avril_FSD::Output*>);
     while (Get_Stack_OutputPraise() == NULL) { }
     Get_Stack_OutputPraise()->resize(1);
     Get_Stack_OutputPraise()->at(0) = Get_New_OutputBuffer();
 
-    delete ptr_EmptyBuffer_Input;
-    delete ptr_EmptyBuffer_Output;
-
+    std::cout << "entered => Data() FOXTROT" << std::endl;
     Set_User_I(new User_I());
     while (Get_User_I() == NULL) { }
 
+    std::cout << "entered => Data() GIGA" << std::endl;
     Set_User_O(new User_O());
     while (Get_User_O() == NULL) { }
 }
@@ -94,6 +90,21 @@ Avril_FSD::Data::~Data()
     delete ptr_Stack_OutputPraise;
 
 }
+
+void Avril_FSD::Data::Initialise(__int8 number_Implemented_Cores)
+{
+    for (__int8 index = 0; index < number_Implemented_Cores; index++)//Number Of Cores
+    {
+        Set_Buffer_InputReference_ForCore(index, Get_New_InputBuffer());
+        while (Get_InputRefferenceOfCore(index) == NULL) {}
+    }
+    for (__int8 index = 0; index < number_Implemented_Cores; index++)
+    {
+        Set_Buffer_OutputReference_ForCore(index, Get_New_OutputBuffer());
+        while (Get_OutputRefferenceOfCore(index) == NULL) {}
+    }
+}
+
 void Avril_FSD::Data::Initialise_Control()
 {
     Set_Data_Control(new class Avril_FSD::Data_Control());
@@ -206,6 +217,7 @@ void Avril_FSD::Data::Set_EmptyBuffer_Input(Avril_FSD::Input* emptyBuffer_Input)
 }
 void Avril_FSD::Data::Set_EmptyBuffer_Output(Avril_FSD::Output* emptyBuffer_Output)
 {
+    std::cout << "entered => Data() Set_EmptyBuffer_Output()" << std::endl;
     ptr_EmptyBuffer_Output = emptyBuffer_Output;
 }
 void Avril_FSD::Data::Set_Buffer_InputDouble(bool state, Avril_FSD::Input* buffer_InputDouble)

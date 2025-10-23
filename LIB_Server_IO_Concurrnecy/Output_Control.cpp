@@ -2,7 +2,7 @@
 
 Avril_FSD::Output_Control::Output_Control()
 {
-
+	std::cout << "entered => Avril_FSD::Output_Control::Output_Control()" << std::endl;
 }
 Avril_FSD::Output_Control::~Output_Control()
 {

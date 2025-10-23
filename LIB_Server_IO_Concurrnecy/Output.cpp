@@ -8,6 +8,7 @@ __int8 _out_playerId;
 
 Avril_FSD::Output::Output()
 {
+    std::cout << "entered => Output()" << std::endl;
     Set_praiseEventId(__int8(255));
     Set_out_playerId(__int8(255));
 }
@@ -20,8 +21,9 @@ Avril_FSD::Output::~Output()
 
 void Avril_FSD::Output::Initialise_Control()
 {
+    std::cout << "entered => Avril_FSD::Output::Initialise_Control()" << std::endl;
     Set_control_Of_Output(new class Avril_FSD::Output_Control());
-    while (Get_control_Of_Output() == nullptr) { /* wait untill created */ }
+    std::cout << "entered => Avril_FSD::Output::Initialise_Control() ALPHA" << std::endl;
 }
 
 Avril_FSD::Output_Control* Avril_FSD::Output::Get_control_Of_Output()

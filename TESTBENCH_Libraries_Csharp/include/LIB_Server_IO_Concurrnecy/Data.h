@@ -5,8 +5,9 @@ namespace Avril_FSD
     class Data
     {
     public:
-        Data(__int8 number_Implemented_Cores);
+        Data();
         virtual ~Data();
+        void Initialise(__int8 number_Implemented_Cores);
         void Initialise_Control();
         class Data_Control* Get_Data_Control();
 

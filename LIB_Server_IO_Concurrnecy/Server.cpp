@@ -15,7 +15,7 @@ Avril_FSD::Server::Server()
     while (Get_Algorithms() == NULL) { }
     std::cout << "Created => Avril_FSD::Algorithms()" << std::endl;
 
-    Set_Data(new class Avril_FSD::Data(Get_Global()->Get_NumCores()));
+    Set_Data(new class Avril_FSD::Data());
     while (Get_Data() == NULL) { }
     ptr_Data->Initialise_Control();
     std::cout << "Created => Avril_FSD::Data()" << std::endl;
@@ -23,7 +23,7 @@ Avril_FSD::Server::Server()
     Set_Execute(new class Avril_FSD::Execute());
     while (Get_Execute() == NULL) { }
     Get_Execute()->Initialise_Control(Get_Global()->Get_NumCores());
-    std::cout << "Created => Avril_FSD::Execute" << std::endl;
+    std::cout << "Created => Avril_FSD::Execute()" << std::endl;
 }
 
 Avril_FSD::Server::~Server()

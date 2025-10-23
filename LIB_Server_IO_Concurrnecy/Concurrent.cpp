@@ -5,7 +5,7 @@ Avril_FSD::Object* ptr_Algorithms_Subset = NULL;
 
 Avril_FSD::Concurrent::Concurrent()
 {
-
+    std::cout << "entered => Avril_FSD::Concurrent::Concurrent()" << std::endl;
 }
 
 Avril_FSD::Concurrent::~Concurrent()
@@ -17,7 +17,7 @@ Avril_FSD::Concurrent::~Concurrent()
 void Avril_FSD::Concurrent::Initialise_Control()
 {
     Set_Concurrent_Control(new class Avril_FSD::Concurrent_Control());
-    while (Get_Concurrent_Control() == NULL) { /* wait untill class constructed */ }
+    while (Get_Concurrent_Control() == NULL) { }
 }
 
 Avril_FSD::Concurrent_Control* Avril_FSD::Concurrent::Get_Concurrent_Control()
@@ -37,12 +37,12 @@ void Avril_FSD::Concurrent::Thread_Concurrency(Avril_FSD::Framework_Server* obj,
         }
 
     }
-    //std::cout << "Thread Initialised: ID=" << (concurrent_coreId) << " => Thread_Concurrency()" << std::endl;//TestBench
+    std::cout << "Thread Initialised: ID=" << (concurrent_coreId) << " => Thread_Concurrency()" << std::endl;//TestBench
     while (obj->Get_Server_Assembly()->Get_Execute()->Get_Control_Of_Execute()->GetFlag_SystemInitialised(obj) == true)
     {
 
     }
-    //std::cout << "Thread Starting " << (concurrent_coreId) << " => Thread_Concurrency()" << std::endl;//TestBench
+    std::cout << "Thread Starting " << (concurrent_coreId) << " => Thread_Concurrency()" << std::endl;//TestBench
     while (obj->Get_Server_Assembly()->Get_Execute()->Get_Control_Of_Execute()->GetFlag_SystemInitialised(obj) == false)
     {
         switch (Avril_FSD::CLIBLaunchEnableForConcurrentThreadsAtSERVER::Get_Flag_ConcurrentCoreState(obj->Get_Server_Assembly()->Get_Execute()->Get_Program_ConcurrentQue_Server(), concurrent_coreId))
