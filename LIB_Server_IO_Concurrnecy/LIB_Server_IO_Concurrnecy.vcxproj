@@ -113,7 +113,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalOptions>/Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Zc:twoPhase-</AdditionalOptions>
       <AdditionalIncludeDirectories>include\LIB_WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE;include\LIB_WriteEnableForThreadsAt_SERVERINPUTACTION;include\LIB_LaunchEnableForConcurrentThreadsAt_SERVER;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

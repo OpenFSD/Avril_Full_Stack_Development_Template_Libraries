@@ -1,5 +1,8 @@
 #include "pch.h"
 
+#include <cstddef>
+#include <vector>
+
 std::vector<bool> _flag_write_IDLE = { NULL, NULL};
 std::vector<bool> _flag_write_WAIT = { NULL, NULL };
 std::vector<bool> _flag_write_WRITE = { NULL, NULL };
@@ -19,7 +22,7 @@ Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION_Global::WriteEnableForThrea
     _flag_write_WRITE.at(0) = bool(true);
     _flag_write_WRITE.at(1) = bool(false);
 
-    _num_Implemented_Cores = unsigned char(2);//NUMBER OF CORES
+    _num_Implemented_Cores = unsigned char(4);//NUMBER OF CORES
 }
 
 Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION_Global::~WriteEnableForThreadsAt_CLIENTINPUTACTION_Global()

@@ -1,5 +1,7 @@
 #include "pch.h"
 
+#include <cstddef>
+
 class Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION_Global* ptr_global = NULL;
 class Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION_Control* ptr_WriteEnable_Control = NULL;
 
@@ -25,7 +27,7 @@ void Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION::Write_End(Avril_FSD::
 {
     obj->Get_writeEnable()->Get_writeEnable_Control()->Set_flag_WriteState(coreId, obj->Get_writeEnable()->Get_global()->Get_flag_write_IDLE());
     obj->Get_writeEnable()->Get_writeEnable_Control()->Set_new_writeCycle_Try_CoreId_Index(obj->Get_writeEnable()->Get_writeEnable_Control()->Get_count_CoreId_WriteActive(coreId) + 1);
-    if(obj->Get_writeEnable()->Get_writeEnable_Control()->Get_new_writeCycle_Try_CoreId_Index() == 3)
+    if(obj->Get_writeEnable()->Get_writeEnable_Control()->Get_new_writeCycle_Try_CoreId_Index() == 2)
     {
         obj->Get_writeEnable()->Get_writeEnable_Control()->Set_new_writeCycle_Try_CoreId_Index(0);
     }

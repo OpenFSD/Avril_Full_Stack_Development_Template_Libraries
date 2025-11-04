@@ -1,28 +1,30 @@
 #include "pch.h"
+#include <vector>
+#include <cstddef>
 
     unsigned char _writeCycle_Try_CoreId_Index = NULL;
-    int _count_CoreId_WriteActive[4] = { NULL, NULL, NULL, NULL };//NUMBER OF CORES
-    int _count_CoreId_WriteIdle[4] = { NULL, NULL, NULL, NULL };//NUMBER OF CORES
-    int _count_CoreId_WriteWait[4] = { NULL, NULL, NULL, NULL };//NUMBER OF CORES
+    int _count_CoreId_WriteActive[2] = { NULL, NULL };//NUMBER OF CORES
+    int _count_CoreId_WriteIdle[2] = { NULL, NULL };//NUMBER OF CORES
+    int _count_CoreId_WriteWait[2] = { NULL, NULL };//NUMBER OF CORES
     bool _flag_praisingWrite = NULL;
-    std::vector<std::vector<bool>> _flag_WriteState = { {NULL, NULL}, {NULL, NULL}, {NULL, NULL}, {NULL, NULL} };//NUMBER OF CORES
+    std::vector<std::vector<bool>> _flag_WriteState = { {NULL, NULL}, {NULL, NULL} };//NUMBER OF CORES
     unsigned char _new_writeCycle_Try_CoreId_Index = NULL;
-    unsigned char _que_CoreToWrite[4] = { NULL, NULL, NULL, NULL };//NUMBER OF CORES
+    unsigned char _que_CoreToWrite[4] = { NULL, NULL };//NUMBER OF CORES
 
     Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION_Control::WriteEnableForThreadsAt_CLIENTINPUTACTION_Control(class Avril_FSD::WriteEnableForThreadsAt_CLIENTINPUTACTION_Global* global)
     {
         _writeCycle_Try_CoreId_Index = unsigned char(0);
-        int _count_CoreId_WriteActive[4] = { int(0), int(0), int(0), int(0) };//NUMBER OF CORES
-        int _count_CoreId_WriteIdle[4] = { int(0), int(0), int(0), int(0) };//NUMBER OF CORES
-        int _count_CoreId_WriteWait[4] = { int(0), int(0), int(0), int(0) };//NUMBER OF CORES
-        _flag_WriteState = std::vector<std::vector<bool>> { {bool(false), bool(false)}, {bool(false), bool(false)}, {bool(false), bool(false)}, {bool(false), bool(false)} };//NUMBER OF CORES
+        int _count_CoreId_WriteActive[2] = { int(0), int(0) };//NUMBER OF CORES
+        int _count_CoreId_WriteIdle[2] = { int(0), int(0) };//NUMBER OF CORES
+        int _count_CoreId_WriteWait[2] = { int(0), int(0) };//NUMBER OF CORES
+        _flag_WriteState = std::vector<std::vector<bool>> { {bool(false), bool(false)}, {bool(false), bool(false)} };//NUMBER OF CORES
         for (__int8 index = 0; index < global->Get_NumCores(); index++)
         {
             _flag_WriteState.at(index) = global->Get_flag_write_IDLE();
         }
         _new_writeCycle_Try_CoreId_Index = unsigned char(1);
         _flag_praisingWrite = false;
-        unsigned char _que_CoreToWrite[4] = { unsigned char(0), unsigned char(1), unsigned char(2), unsigned char(3) };//NUMBER OF CORES
+        unsigned char _que_CoreToWrite[2] = { unsigned char(0), unsigned char(1) };//NUMBER OF CORES
         for (unsigned char index = 0; index < global->Get_NumCores(); index++)
         {
             _que_CoreToWrite[index] = index;
