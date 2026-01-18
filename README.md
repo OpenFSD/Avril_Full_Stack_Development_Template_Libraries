@@ -21,14 +21,14 @@ Version xx.xx.xx.
 ## Dependencies.
 ### Server Library.
  - https://github.com/OpenFSD/ServerLibrary
-   
+
 ### WriteEnableForThreadsAtStacks.
- - https://github.com/OpenFSD/WriteEnableForThreadsAtStacks
+ - https://github.com/OpenFSD/LIB_WriteEnableForThreadsAt_STACK
 #### Similar Repositiry.
  - https://github.com/cameron314/readerwriterqueue
    
 ### LaunchEnableForConcurrentThreadsAtEnds
- - https://github.com/OpenFSD/LaunchEnableForConcurrentThreadsAtEnds
+ - https://github.com/OpenFSD/LIB_LaunchEnableForConcurrentThreadsAt_END
 #### Similar Repositiry.
  - https://github.com/cameron314/concurrentqueue
    
