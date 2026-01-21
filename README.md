@@ -11,7 +11,7 @@ Version: 24H2
 
 ### Using Microsoft Visual Studio Professional 2022.
 
-Version xx.xx.xx.
+Version 17.13.4.
  
 
 ## Copendencies.
