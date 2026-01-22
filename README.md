@@ -1,6 +1,6 @@
 # LIBRARIES for Full Stack Development Template.
-## - Avril FSD Server Assembly.
-## - Avril FSD Client Assembly.
+## - Avril OpenCFSD Server Shell Assembly.
+## - Avril OpenCFSD Client Shell Assembly.
 
 ### C# .NET Console.
 
@@ -15,20 +15,20 @@ Version 17.13.4.
  
 
 ## Copendencies.
-### Avril FSD Server Assembly.
-### Avril FSD Client Assembly.
+- Avril OpenCFSD Server Shell Assembly.
+- Avril OpenCFSD Client Shell Assembly.
 
 ## Dependencies.
 ### Server Library.
- - https://github.com/OpenFSD/ServerLibrary
+ - https://github.com/AvrilOpenCFSD/ServerLibrary
 
 ### WriteEnableForThreadsAtStacks.
- - https://github.com/OpenFSD/LIB_WriteEnableForThreadsAt_STACK
+ - https://github.com/AvrilOpenCFSD/LIB_WriteEnableForThreadsAt_STACK
 #### Similar Repositiry.
  - https://github.com/cameron314/readerwriterqueue
    
 ### LaunchEnableForConcurrentThreadsAtEnds
- - https://github.com/OpenFSD/LIB_LaunchEnableForConcurrentThreadsAt_END
+ - https://github.com/AvrilOpenCFSD/LIB_LaunchEnableForConcurrentThreadsAt_END
 #### Similar Repositiry.
  - https://github.com/cameron314/concurrentqueue
    
