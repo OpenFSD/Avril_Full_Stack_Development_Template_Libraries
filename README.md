@@ -1,4 +1,4 @@
-# LIBRARIES for Full Stack Development Template.
+# LIBRARIES Template(s) for Avril Open Concurrent Full Stack Development.
 ## - Avril OpenCFSD Server Shell Assembly.
 ## - Avril OpenCFSD Client Shell Assembly.
 
