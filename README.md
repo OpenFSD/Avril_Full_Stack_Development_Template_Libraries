@@ -31,15 +31,11 @@ Version 17.13.4.
  - https://github.com/AvrilOpenCFSD/LIB_LaunchEnableForConcurrentThreadsAt_END
 #### Similar Repositiry.
  - https://github.com/cameron314/concurrentqueue
-   
-### Valve Software.
-- https://github.com/ValveSoftware/GameNetworkingSockets
-- https://github.com/ValveSoftware/GameNetworkingSockets/blob/master/BUILDING.md
-
-### OpenTK
-Version: 2.0
 
 ### .Net.
 Version: .Net 8.0
+
+## TestBench in C#.
+ - https://github.com/AvrilOpenCFSD/Avril_Full_Stack_Development_Template_Libraries/blob/master/TESTBENCH_Libraries_Csharp/Program.cs
 
 ## Development History.
