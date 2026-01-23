@@ -20,7 +20,7 @@ Version 17.13.4.
 
 ## Dependencies.
 ### Server Library.
- - https://github.com/AvrilOpenCFSD/ServerLibrary
+ - https://github.com/AvrilOpenCFSD/LIB_Concurrent_IO_Server
 
 ### WriteEnableForThreadsAtStacks.
  - https://github.com/AvrilOpenCFSD/LIB_WriteEnableForThreadsAt_STACK
