@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "TESTBENCH_Libraries_Csharp": {
-      "commandName": "Project",
-      "nativeDebugging": true
-    }
-  }
-}
