@@ -1,24 +1,24 @@
 #include "pch.h"
 
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Global* ptr_Global = NULL;
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control* ptr_LaunchConcurrency_Control = NULL;
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Global* ptr_Global = NULL;
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control* ptr_LaunchConcurrency_Control = NULL;
 
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::LaunchEnableForConcurrentThreadsAt_SERVER()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::LaunchEnableForConcurrentThreadsAt_SERVER()
 {
     Create_LaunchEnableForConcurrentThreadsAt_SERVER_Global();
 }
 
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::~LaunchEnableForConcurrentThreadsAt_SERVER()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::~LaunchEnableForConcurrentThreadsAt_SERVER()
 {
     delete ptr_LaunchConcurrency_Control;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Initialise_Control()
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Initialise_Control()
 {
     Create_Control_Of_LaunchConcurrency();
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Thread_Start(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Thread_Start(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
 {
     obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->LaunchEnable_Request(obj, concurrent_CoreId);
     obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->LaunchQue_Update(obj, obj->Get_LaunchEnableForConcurrentThread()->Get_LaunchConcurrency_Global()->Get_number_Implemented_Cores());
@@ -29,7 +29,7 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Thread_Start(Avril_FS
     obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Set_flag_praisingLaunch(false);
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Thread_End(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Thread_End(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
 {
     while (obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Get_flag_praisingLaunch() == true)
     {
@@ -53,37 +53,37 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Thread_End(Avril_FSD:
         obj->Get_LaunchEnableForConcurrentThread()->Thread_End(obj, concurrent_CoreId);
     }
 }
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Create_LaunchEnableForConcurrentThreadsAt_SERVER_Global()
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Create_LaunchEnableForConcurrentThreadsAt_SERVER_Global()
 {
-    Set_LaunchConcurrency_Global(new class Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Global());
+    Set_LaunchConcurrency_Global(new class OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Global());
     while (Get__LaunchConcurrency_Global() == NULL) {}
 }
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Create_Control_Of_LaunchConcurrency()
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Create_Control_Of_LaunchConcurrency()
 {
-    Set_Control_Of_LaunchConcurrency(new class Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control(Get__LaunchConcurrency_Global(), Get__LaunchConcurrency_Global()->Get_number_Implemented_Cores()));
+    Set_Control_Of_LaunchConcurrency(new class OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control(Get__LaunchConcurrency_Global(), Get__LaunchConcurrency_Global()->Get_number_Implemented_Cores()));
     while (Get__Control_Of_LaunchConcurrency() == NULL) { /* wait untill created */ }
 }
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Global* Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Get_LaunchConcurrency_Global()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Global* OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Get_LaunchConcurrency_Global()
 {
     return ptr_Global;
 }
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control* Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Get_Control_Of_LaunchConcurrency()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control* OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Get_Control_Of_LaunchConcurrency()
 {
     return ptr_LaunchConcurrency_Control;
 }
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Global* Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Get__LaunchConcurrency_Global()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Global* OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Get__LaunchConcurrency_Global()
 {
     return ptr_Global;
 }
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control* Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Get__Control_Of_LaunchConcurrency()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control* OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Get__Control_Of_LaunchConcurrency()
 {
     return ptr_LaunchConcurrency_Control;
 }
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Set_LaunchConcurrency_Global(LaunchEnableForConcurrentThreadsAt_SERVER_Global* global)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Set_LaunchConcurrency_Global(LaunchEnableForConcurrentThreadsAt_SERVER_Global* global)
 {
     ptr_Global = global;
 }
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER::Set_Control_Of_LaunchConcurrency(LaunchEnableForConcurrentThreadsAt_SERVER_Control* control)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER::Set_Control_Of_LaunchConcurrency(LaunchEnableForConcurrentThreadsAt_SERVER_Control* control)
 {
     ptr_LaunchConcurrency_Control = control;
 }

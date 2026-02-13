@@ -5,7 +5,7 @@
 #include "framework.h"
 #include "LIB_WriteEnableForThreadsAt_SERVERINPUTACTION.h"
 
-Avril_FSD::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* ptr_WriteEnableForThreadsAt_SERVERINPUTACTION_Framework = NULL;
+OpenAvril::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* ptr_WriteEnableForThreadsAt_SERVERINPUTACTION_Framework = NULL;
 
 // This is an example of an exported variable
 LIBWRITEENABLEFORTHREADSATSERVERINPUTACTION_API int nLIBWriteEnableForThreadsAtSERVERINPUTACTION=0;
@@ -15,31 +15,31 @@ LIBWRITEENABLEFORTHREADSATSERVERINPUTACTION_API int fnLIBWriteEnableForThreadsAt
 {
     return 0;
 }
-void* Avril_FSD::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Initialise_WriteEnable()
+void* OpenAvril::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Initialise_WriteEnable()
 {
-    Set_writeEnable(new class Avril_FSD::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework());
+    Set_writeEnable(new class OpenAvril::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework());
     while (Get_Framework_WriteEnable() == NULL) {}
     return (void*)Get_Framework_WriteEnable();
 }
-void Avril_FSD::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Write_End(Avril_FSD::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, unsigned char coreId)
+void OpenAvril::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Write_End(OpenAvril::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, unsigned char coreId)
 {
     obj->Get_writeEnable()->Write_End(obj, coreId);
 }
-void Avril_FSD::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Write_Start(Avril_FSD::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, unsigned char coreId)
+void OpenAvril::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Write_Start(OpenAvril::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, unsigned char coreId)
 {
     obj->Get_writeEnable()->Write_Start(obj, coreId);
 }
-Avril_FSD::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* Avril_FSD::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Get_Framework_WriteEnable()
+OpenAvril::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* OpenAvril::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Get_Framework_WriteEnable()
 {
     return ptr_WriteEnableForThreadsAt_SERVERINPUTACTION_Framework;
 }
-void Avril_FSD::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Set_writeEnable(Avril_FSD::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* writeEnable)
+void OpenAvril::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::Set_writeEnable(OpenAvril::WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* writeEnable)
 {
     ptr_WriteEnableForThreadsAt_SERVERINPUTACTION_Framework = writeEnable;
 }
 
 // This is the constructor of a class that has been exported.
-Avril_FSD::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::CLIBWriteEnableForThreadsAtSERVERINPUTACTION()
+OpenAvril::CLIBWriteEnableForThreadsAtSERVERINPUTACTION::CLIBWriteEnableForThreadsAtSERVERINPUTACTION()
 {
     return;
 }

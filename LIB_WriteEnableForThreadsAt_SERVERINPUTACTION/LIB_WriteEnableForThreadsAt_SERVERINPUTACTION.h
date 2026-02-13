@@ -11,7 +11,7 @@
 #endif
 
 
-namespace Avril_FSD
+namespace OpenAvril
 {
 	// This class is exported from the dll
 	class LIBWRITEENABLEFORTHREADSATSERVERINPUTACTION_API CLIBWriteEnableForThreadsAtSERVERINPUTACTION {

@@ -9,7 +9,7 @@
     unsigned char _new_writeCycle_Try_CoreId_Index = NULL;
     unsigned char _que_CoreToWrite[4] = { NULL, NULL, NULL, NULL };//NUMBER OF CORES
 
-    Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control(class Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Global* global)
+    OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control(class OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Global* global)
     {
         _writeCycle_Try_CoreId_Index = unsigned char(0);
         int _count_CoreId_WriteActive[4] = { int(0), int(0), int(0), int(0) };//NUMBER OF CORES
@@ -29,17 +29,17 @@
         }
     }
 
-    Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::~WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control()
+    OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::~WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control()
     {
 
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_Activate(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_Activate(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId)
     {
         obj->Get_writeEnable()->Get_writeEnable_Control()->Set_flag_WriteState(coreId, obj->Get_writeEnable()->Get_global()->Get_flag_write_WAIT());
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_SortQue(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_SortQue(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj)
     {
         for (unsigned char index_A = 0; index_A < (obj->Get_writeEnable()->Get_global()->Get_NumCores() - 1); index_A++)
         {
@@ -85,7 +85,7 @@
         }
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_Request(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_Request(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId)
     {
         while (obj->Get_writeEnable()->Get_writeEnable_Control()->Get_flag_praisingWrite() == true)
         {
@@ -113,7 +113,7 @@
         }
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteQue_Update(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteQue_Update(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj)
     {
         for (unsigned char index = 0; index < obj->Get_writeEnable()->Get_global()->Get_NumCores(); index++)
         {
@@ -138,7 +138,7 @@
         }
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::DynamicStagger(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::DynamicStagger(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId)
     {
         if (obj->Get_writeEnable()->Get_writeEnable_Control()->Get_writeCycle_Try_CoreId_Index() == coreId)
         {
@@ -154,7 +154,7 @@
         }
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_ShiftQueValues(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId_A, unsigned char coreId_B)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::WriteEnable_ShiftQueValues(class WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Framework* obj, unsigned char coreId_A, unsigned char coreId_B)
     {
         int temp_A = int(0);
         temp_A = obj->Get_writeEnable()->Get_writeEnable_Control()->Get_count_CoreId_WriteActive(coreId_A);
@@ -175,82 +175,82 @@
         obj->Get_writeEnable()->Get_writeEnable_Control()->Set_que_CoreToWrite(coreId_B, temp_B);
     }
 
-    unsigned char Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_writeCycle_Try_CoreId_Index()
+    unsigned char OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_writeCycle_Try_CoreId_Index()
     {
         return _writeCycle_Try_CoreId_Index;
     }
 
-    int Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_count_CoreId_WriteActive(unsigned char coreId)
+    int OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_count_CoreId_WriteActive(unsigned char coreId)
     {
         return _count_CoreId_WriteActive[coreId];
     }
 
-    int Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_count_CoreId_WriteIdle(unsigned char coreId)
+    int OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_count_CoreId_WriteIdle(unsigned char coreId)
     {
         return _count_CoreId_WriteIdle[coreId];
     }
 
-    int Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_count_CoreId_WriteWait(unsigned char coreId)
+    int OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_count_CoreId_WriteWait(unsigned char coreId)
     {
         return _count_CoreId_WriteWait[coreId];
     }
 
-    bool Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_flag_praisingWrite()
+    bool OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_flag_praisingWrite()
     {
         return _flag_praisingWrite;
     }
 
-    std::vector<bool> Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_flag_WriteState(unsigned char coreId)
+    std::vector<bool> OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_flag_WriteState(unsigned char coreId)
     {
         return _flag_WriteState[coreId];
     }
 
-    unsigned char Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_new_writeCycle_Try_CoreId_Index()
+    unsigned char OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_new_writeCycle_Try_CoreId_Index()
     {
         return _new_writeCycle_Try_CoreId_Index;
     }
 
-    unsigned char Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_que_CoreToWrite(unsigned char coreId)
+    unsigned char OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Get_que_CoreToWrite(unsigned char coreId)
     {
         return _que_CoreToWrite[coreId];
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_writeCycle_Try_CoreId_Index(unsigned char writeCycle_Try_CoreId_Index)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_writeCycle_Try_CoreId_Index(unsigned char writeCycle_Try_CoreId_Index)
     {
         _writeCycle_Try_CoreId_Index = writeCycle_Try_CoreId_Index;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_count_CoreId_WriteActive(unsigned char coreId, int count_CoreId_WriteActive)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_count_CoreId_WriteActive(unsigned char coreId, int count_CoreId_WriteActive)
     {
         _count_CoreId_WriteActive[coreId] = count_CoreId_WriteActive;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_count_CoreId_WriteIdle(unsigned char coreId, int count_CoreId_WriteIdle)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_count_CoreId_WriteIdle(unsigned char coreId, int count_CoreId_WriteIdle)
     {
         _count_CoreId_WriteIdle[coreId] = count_CoreId_WriteIdle;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_count_CoreId_WriteWait(unsigned char coreId, int count_CoreId_WriteWait)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_count_CoreId_WriteWait(unsigned char coreId, int count_CoreId_WriteWait)
     {
         _count_CoreId_WriteWait[coreId] = count_CoreId_WriteWait;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_flag_praisingWrite(bool flag_praisingWrite)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_flag_praisingWrite(bool flag_praisingWrite)
     {
         _flag_praisingWrite = flag_praisingWrite;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_flag_WriteState(unsigned char coreId, std::vector<bool> flag_WriteState)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_flag_WriteState(unsigned char coreId, std::vector<bool> flag_WriteState)
     {
         _flag_WriteState.at(coreId) = flag_WriteState;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_new_writeCycle_Try_CoreId_Index(unsigned char new_writeCycle_Try_CoreId_Index)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_new_writeCycle_Try_CoreId_Index(unsigned char new_writeCycle_Try_CoreId_Index)
     {
         _new_writeCycle_Try_CoreId_Index = new_writeCycle_Try_CoreId_Index;
     }
 
-    void Avril_FSD::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_que_CoreToWrite(unsigned char coreId, unsigned char que_CoreToWrite)
+    void OpenAvril::WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE_Control::Set_que_CoreToWrite(unsigned char coreId, unsigned char que_CoreToWrite)
     {
         _que_CoreToWrite[coreId] = que_CoreToWrite;//NUMBER OF CORES
     }

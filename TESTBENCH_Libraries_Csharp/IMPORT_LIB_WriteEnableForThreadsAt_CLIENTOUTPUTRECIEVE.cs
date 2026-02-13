@@ -7,18 +7,18 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Avril_FSD
+namespace OpenAvril
 {
     [SuppressUnmanagedCodeSecurity]
     public static class Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE
     {
-        [DllImport("LIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.dll", EntryPoint = "?Initialise_WriteEnable@CLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE@Avril_FSD@@SAPAXXZ")]
+        [DllImport("LIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.dll", EntryPoint = "?Initialise_WriteEnable@CLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE@OpenAvril@@SAPAXXZ")]
         public static extern IntPtr Initialise_WriteEnable();
 
-        [DllImport("LIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.dll", EntryPoint = "?Write_End@CLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE@Avril_FSD@@SAXPAVWriteEnableForThreadsAt_STACK_Framework@2@E@Z")]
+        [DllImport("LIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.dll", EntryPoint = "?Write_End@CLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE@OpenAvril@@SAXPAVWriteEnableForThreadsAt_STACK_Framework@2@E@Z")]
         public static extern void Write_End(IntPtr obj, byte coreId);
 
-        [DllImport("LIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.dll", EntryPoint = "?Write_Start@CLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE@Avril_FSD@@SAXPAVWriteEnableForThreadsAt_STACK_Framework@2@E@Z")]
+        [DllImport("LIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.dll", EntryPoint = "?Write_Start@CLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE@OpenAvril@@SAXPAVWriteEnableForThreadsAt_STACK_Framework@2@E@Z")]
         public static extern void Write_Start(IntPtr obj, byte coreId);
     }
 }

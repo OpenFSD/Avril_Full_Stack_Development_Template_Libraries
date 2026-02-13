@@ -4,7 +4,7 @@
 #define LIBWRITEENABLEFORTHREADSATCLIENTINPUTACTION_API __declspec(dllimport)
 #endif
 
-namespace Avril_FSD
+namespace OpenAvril
 {
 	class LIBWRITEENABLEFORTHREADSATCLIENTINPUTACTION_API Library_WriteEnableForThreadsAt_CLIENTINPUTACTION {
 	public:

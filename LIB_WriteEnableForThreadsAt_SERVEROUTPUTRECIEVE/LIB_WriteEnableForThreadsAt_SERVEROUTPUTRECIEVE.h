@@ -4,7 +4,7 @@
 #define LIBWRITEENABLEFORTHREADSATSERVEROUTPUTRECIEVE_API __declspec(dllimport)
 #endif
 
-namespace Avril_FSD
+namespace OpenAvril
 {
 	class LIBWRITEENABLEFORTHREADSATSERVEROUTPUTRECIEVE_API Library_WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE {
 	public:

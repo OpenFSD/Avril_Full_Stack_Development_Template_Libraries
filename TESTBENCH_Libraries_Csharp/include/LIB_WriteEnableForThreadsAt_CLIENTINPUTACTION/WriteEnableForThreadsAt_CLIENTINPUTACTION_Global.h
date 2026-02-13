@@ -2,7 +2,7 @@
 #include <array>
 #include <vector>
 
-namespace Avril_FSD
+namespace OpenAvril
 {
     class WriteEnableForThreadsAt_CLIENTINPUTACTION_Global
     {

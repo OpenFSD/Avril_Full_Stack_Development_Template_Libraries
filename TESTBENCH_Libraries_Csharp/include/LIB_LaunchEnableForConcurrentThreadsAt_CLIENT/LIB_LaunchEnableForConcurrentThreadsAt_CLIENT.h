@@ -10,7 +10,7 @@
 #define LIBLAUNCHENABLEFORCONCURRENTTHREADSATCLIENT_API __declspec(dllimport)
 #endif
 
-namespace Avril_FSD
+namespace OpenAvril
 {
 	// This class is exported from the dll
 	class LIBLAUNCHENABLEFORCONCURRENTTHREADSATCLIENT_API CLIBLaunchEnableForConcurrentThreadsAtCLIENT {

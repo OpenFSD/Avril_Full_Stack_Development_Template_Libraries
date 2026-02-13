@@ -5,30 +5,17 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>AnyCPU;x86;x64</Platforms>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LIB_LaunchEnableForConcurrentThreadsAt_CLIENT\LIB_LaunchEnableForConcurrentThreadsAt_CLIENT.vcxproj" />
-    <ProjectReference Include="..\LIB_LaunchEnableForConcurrentThreadsAt_SERVER\LIB_LaunchEnableForConcurrentThreadsAt_SERVER.vcxproj" />
-    <ProjectReference Include="..\LIB_Server_IO_Concurrnecy\LIB_Server_IO_Concurrnecy.vcxproj" />
     <ProjectReference Include="..\LIB_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE\LIB_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE.vcxproj" />
-    <ProjectReference Include="..\LIB_WriteEnableForThreadsAt_SERVERINPUTACTION\LIB_WriteEnableForThreadsAt_SERVERINPUTACTION.vcxproj" />
-    <ProjectReference Include="..\LIB_WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE\LIB_WriteEnableForThreadsAt_SERVEROUTPUTRECIEVE.vcxproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="LIBServerIOConcurrnecy">
-      <HintPath>LIBServerIOConcurrnecy.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="LIBLaunchEnableForConcurrentThreadsAtCLIENT.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="LIBLaunchEnableForConcurrentThreadsAtSERVER.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="LIBServerIOConcurrnecy.dll">
@@ -41,9 +28,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="LIBWriteEnableForThreadsAtSERVERINPUTACTION.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="LIBWriteEnableForThreadsAtSERVEROUTPUTRECIEVE.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

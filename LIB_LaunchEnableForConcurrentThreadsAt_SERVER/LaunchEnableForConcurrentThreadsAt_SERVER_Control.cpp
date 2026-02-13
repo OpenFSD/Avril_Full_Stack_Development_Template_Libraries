@@ -11,7 +11,7 @@ bool _state_ConcurrentCore[3] = { NULL, NULL, NULL };//NUMBER OF CONCURRENT CORE
 unsigned char _new_concurrentCycle_Try_CoreId_Index = NULL;
 unsigned char _que_CoreToLaunch[3] = { NULL, NULL, NULL };//NUMBER OF CONCURRENT CORES
 
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnableForConcurrentThreadsAt_SERVER_Control(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Global* global, unsigned char number_Implemented_Cores)
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnableForConcurrentThreadsAt_SERVER_Control(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Global* global, unsigned char number_Implemented_Cores)
 {
     Set_concurrentCycle_Try_CoreId_Index(0);
     for (__int8 index = 0; index < global->Get_number_Implemented_Cores() - 1; index++)//NUMBER OF CONCURRENT CORES
@@ -35,17 +35,17 @@ Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnableForCon
     }
 }
 
-Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::~LaunchEnableForConcurrentThreadsAt_SERVER_Control()
+OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::~LaunchEnableForConcurrentThreadsAt_SERVER_Control()
 {
 
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_Activate(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_Activate(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj)
 {
     obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Set_state_ConcurrentCore(obj->Get_LaunchEnableForConcurrentThread()->Get_LaunchConcurrency_Global()->Get_flag_core_ACTIVE(), obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Get_que_CoreToLaunch(0));
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_Request(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_Request(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
 {
     while (obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Get_state_ConcurrentCore(Get_flag_CoreId_Of_CoreToLaunch()) != obj->Get_LaunchEnableForConcurrentThread()->Get_LaunchConcurrency_Global()->Get_flag_core_IDLE())
     {
@@ -73,7 +73,7 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_
     }
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_SortQue(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char number_Implemented_Cores)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_SortQue(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char number_Implemented_Cores)
 {
     for (unsigned char index_A = 0; index_A < number_Implemented_Cores - 2; index_A++)
     {
@@ -106,7 +106,7 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_
     }
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchQue_Update(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char number_Implemented_Cores)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchQue_Update(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char number_Implemented_Cores)
 {
     for (unsigned char index = 0; index < number_Implemented_Cores; index++)
     {
@@ -128,7 +128,7 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchQue_Upd
     }
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::DynamicStagger(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::DynamicStagger(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId)
 {
     if (obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Get_concurrentCycle_Try_CoreId_Index() == concurrent_CoreId)
     {
@@ -145,7 +145,7 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::DynamicStagge
     }
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_ShiftQueValues(Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId_A, unsigned char concurrent_CoreId_B)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_ShiftQueValues(OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Framework* obj, unsigned char concurrent_CoreId_A, unsigned char concurrent_CoreId_B)
 {
     int temp_Int;
     temp_Int = obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Get_count_LaunchActive_For(concurrent_CoreId_A);
@@ -162,87 +162,87 @@ void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::LaunchEnable_
     obj->Get_LaunchEnableForConcurrentThread()->Get_Control_Of_LaunchConcurrency()->Set_que_CoreToLaunch(concurrent_CoreId_B, temp_UnnsignedChar);
 }
 
-unsigned char Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_concurrentCycle_Try_CoreId_Index()
+unsigned char OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_concurrentCycle_Try_CoreId_Index()
 {
     return _concurrentCycle_Try_CoreId_Index;
 }
 
-int Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_count_LaunchActive_For(unsigned char concurrent_CoreId)
+int OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_count_LaunchActive_For(unsigned char concurrent_CoreId)
 {
     return _count_LaunchActive_For[concurrent_CoreId];
 }
 
-int Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_count_LaunchIdle_For(unsigned char concurrent_CoreId)
+int OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_count_LaunchIdle_For(unsigned char concurrent_CoreId)
 {
     return _count_LaunchIdle_For[concurrent_CoreId];
 }
 
-bool Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_flag_praisingLaunch()
+bool OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_flag_praisingLaunch()
 {
     return _flag_praisingLaunch;
 }
 
-std::vector<unsigned char>* Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_stack_PriseEventId()
+std::vector<unsigned char>* OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_stack_PriseEventId()
 {
     return _stack_PriseEventId;
 }
 
-bool Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_state_ConcurrentCore(unsigned char concurrent_CoreId)
+bool OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_state_ConcurrentCore(unsigned char concurrent_CoreId)
 {
     return _state_ConcurrentCore[concurrent_CoreId];
 }
 
-unsigned char Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_new_concurrentCycle_Try_CoreId_Index()
+unsigned char OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_new_concurrentCycle_Try_CoreId_Index()
 {
     return _new_concurrentCycle_Try_CoreId_Index;
 }
 
-unsigned char Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_flag_CoreId_Of_CoreToLaunch()
+unsigned char OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_flag_CoreId_Of_CoreToLaunch()
 {
     return _que_CoreToLaunch[0];
 }
 
-unsigned char Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_que_CoreToLaunch(unsigned char index)
+unsigned char OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Get_que_CoreToLaunch(unsigned char index)
 {
     return _que_CoreToLaunch[index];
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_concurrentCycle_Try_CoreId_Index(unsigned char concurrentCycle_Try_CoreId_Index)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_concurrentCycle_Try_CoreId_Index(unsigned char concurrentCycle_Try_CoreId_Index)
 {
     _concurrentCycle_Try_CoreId_Index = concurrentCycle_Try_CoreId_Index;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_count_LaunchActive_For(int count_LaunchActive_For, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_count_LaunchActive_For(int count_LaunchActive_For, unsigned char concurrent_CoreId)
 {
     _count_LaunchActive_For[concurrent_CoreId] = count_LaunchActive_For;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_count_LaunchIdle_For(int count_LaunchIdle_For, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_count_LaunchIdle_For(int count_LaunchIdle_For, unsigned char concurrent_CoreId)
 {
     _que_CoreToLaunch[concurrent_CoreId] = count_LaunchIdle_For;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_flag_praisingLaunch(bool flag_praisingLaunch)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_flag_praisingLaunch(bool flag_praisingLaunch)
 {
     _flag_praisingLaunch = flag_praisingLaunch;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_stack_PriseEventId(std::vector<unsigned char>* stack_PriseEventId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_stack_PriseEventId(std::vector<unsigned char>* stack_PriseEventId)
 {
     _stack_PriseEventId = stack_PriseEventId;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_state_ConcurrentCore(bool state_ConcurrentCore, unsigned char concurrent_CoreId)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_state_ConcurrentCore(bool state_ConcurrentCore, unsigned char concurrent_CoreId)
 {
     _state_ConcurrentCore[concurrent_CoreId] = state_ConcurrentCore;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_new_concurrentCycle_Try_CoreId_Index(unsigned char new_concurrentCycle_Try_CoreId_Index)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_new_concurrentCycle_Try_CoreId_Index(unsigned char new_concurrentCycle_Try_CoreId_Index)
 {
     _new_concurrentCycle_Try_CoreId_Index = new_concurrentCycle_Try_CoreId_Index;
 }
 
-void Avril_FSD::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_que_CoreToLaunch(unsigned char concurrent_CoreId, unsigned char value)
+void OpenAvril::LaunchEnableForConcurrentThreadsAt_SERVER_Control::Set_que_CoreToLaunch(unsigned char concurrent_CoreId, unsigned char value)
 {
     _que_CoreToLaunch[concurrent_CoreId] = value;
 }

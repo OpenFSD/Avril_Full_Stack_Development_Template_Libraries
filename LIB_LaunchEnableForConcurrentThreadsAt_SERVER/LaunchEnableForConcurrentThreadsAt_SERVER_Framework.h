@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Avril_FSD
+namespace OpenAvril
 {
     class LaunchEnableForConcurrentThreadsAt_SERVER_Framework
     {

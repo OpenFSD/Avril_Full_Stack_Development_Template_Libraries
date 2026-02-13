@@ -19,4 +19,14 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\LIBLaunchEnableForConcurrentThreadsAtSERVER.lib" />
+    <Library Include="lib\LIBWriteEnableForThreadsAtSERVERINPUTACTION.lib" />
+    <Library Include="lib\LIBWriteEnableForThreadsAtSERVEROUTPUTRECIEVE.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LIBLaunchEnableForConcurrentThreadsAtSERVER.dll" />
+    <None Include="LIBWriteEnableForThreadsAtSERVERINPUTACTION.dll" />
+    <None Include="LIBWriteEnableForThreadsAtSERVEROUTPUTRECIEVE.dll" />
+  </ItemGroup>
 </Project>
